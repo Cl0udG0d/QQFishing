@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_DATABASE=QQFishing
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    restart: always
+    command: [
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci',
+    ]
+
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    links:
+     - mysql:mysql
+    depends_on:
+     - mysql
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai

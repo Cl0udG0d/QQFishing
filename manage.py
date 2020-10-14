@@ -1,8 +1,8 @@
 from flask_script import Manager
 from flask_migrate import MigrateCommand, Migrate
-from index import app
+from config import app
 from exts import db
-# from models import User, Log, BaseInfo
+from models import User, Target
 
 #    存放命令脚本
 
