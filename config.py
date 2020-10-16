@@ -4,8 +4,8 @@ import os
 
 
 
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 # HOSTNAME='mysql'
 HOSTNAME = '127.0.0.1'

@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, session, flash
-# from decorators import login_required
+from decorators import login_required
 from config import app
 from models import User, Target
 from exts import db
@@ -9,7 +9,6 @@ from exts import db
 #     return
 
 @app.route('/', methods=['GET', 'POST'])
-# @login_required
 def index():
     if request.method == 'GET':
         return render_template('index.html')
@@ -23,7 +22,6 @@ def index():
 
 
 @app.route('/login/', methods=['GET', 'POST'])
-# @login_required
 def adminlogin():
     if request.method == 'GET':
         return render_template('administrator-login.html')
@@ -43,7 +41,7 @@ def adminlogin():
 
 @app.route('/adminindex/<int:page>', methods=['GET', 'POST'])
 @app.route('/adminindex', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def adminindex(page=None):
     if not page:
         page = 1
@@ -54,6 +52,32 @@ def adminindex(page=None):
         paginate = Target.query.paginate(page, per_page, error_out=False)
     targetlist = paginate.items
     return render_template('target.html', paginate=paginate, targetlist=targetlist)
+
+@app.route('/editpassword', methods=['GET', 'POST'])
+@login_required
+def editpasswd():
+    if request.method == 'GET':
+        return render_template('editpasswd.html')
+    else:
+        user_id = session.get('user_id')
+        nowuser = User.query.filter(User.id == user_id).first()
+        oldpassword = request.form.get('oldpassword')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+        if nowuser.check_password(oldpassword):
+            if password1 != password2:
+                message = "两次密码输入不一致"
+                flash(message)
+                return render_template('editpasswd.html')
+            else:
+                temp = User(email=nowuser.email, username=nowuser.username,password=password1)
+                db.session.add(temp)
+                db.session.commit()
+                session.clear()
+                return redirect(url_for('adminlogin'))
+        else:
+            flash("旧密码输入错误 :(")
+            return render_template('editpasswd.html')
 
 
 def saveprofile(username,password):
