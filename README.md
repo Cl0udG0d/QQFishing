@@ -56,7 +56,10 @@
 ## 部分截图
 界面太丑了，不截图了  
 算了还是截两张吧  
-![]()
+![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/index1.png)
+![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/index2.png)
+![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/index3.png)
+![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/index4.png)
 
 
 ## 参考学习
