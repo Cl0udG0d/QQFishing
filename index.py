@@ -70,8 +70,7 @@ def editpasswd():
                 flash(message)
                 return render_template('editpasswd.html')
             else:
-                temp = User(email=nowuser.email, username=nowuser.username,password=password1)
-                db.session.add(temp)
+                nowuser.set_password(password1)
                 db.session.commit()
                 session.clear()
                 return redirect(url_for('adminlogin'))
