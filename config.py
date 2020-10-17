@@ -7,8 +7,8 @@ import os
 # DEBUG = True
 DEBUG = False
 
-# HOSTNAME='mysql'
-HOSTNAME = '127.0.0.1'
+HOSTNAME='mysql'
+# HOSTNAME = '127.0.0.1'
 PORT = '3306'
 DATABASE = 'QQFishing'
 USERNAME = 'root'
