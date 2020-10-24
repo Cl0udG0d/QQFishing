@@ -57,19 +57,23 @@
 
 - 修改config.py数据库账号密码为本地账号密码,将config.py 中 HOSTNAME='mysql' 修改为 HOSTNAME='127.0.0.1'，如图：
 
+  ![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/4.png)
+
 - 修改index.py文件中的app.run()为app.run(host='0.0.0.0')，如图：
+
+  ![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/2.png)
 
 - 导入数据库init.sql文件（方法很多，例如：https://www.php.cn/php-ask-424960.html，init.sql在 /mysql/init/文件夹下，init.sql.zip在本目录下），进行自动初始化数据库和表，以及初始管理用户
 
 - 运行python3 index.py，如图：
 
-  
+  ![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/1.png)
 
   访问 [http://ip地址:5000](http://ip:5000/)
 
 - 如果访问不了，请检查是否是IP地址输错或者是云服务器防火墙端口未打开，如图：
 
-  
+  ![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/3.png)
 
 **提示：默认管理员登录邮箱为:[springbird@qq.com](mailto:springbird@qq.com),密码为:springbird,登录之后请第一时间修改密码**
 
