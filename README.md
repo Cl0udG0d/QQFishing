@@ -6,7 +6,7 @@
 
 :blush:后端使用Python-Flask编写 前端白嫖+随便写写，数据库使用MySQL🔥
 
-:zap:项目部署只支持Docker:whale:安装(懒得配置源码安装)
+:zap:项目部署只支持Docker:whale:安装(~~懒得配置源码安装~~)，应 issue-1，添加源码安装教程
 
 :trident:适用对象: 使用社会工程学定向钓鱼攻击的安全渗透人员
 
@@ -22,6 +22,7 @@
 - [维护者](#维护者)
 - [如何贡献](#如何贡献)
 - [使用许可](#使用许可)
+- [赞赏码](#赞赏码)
 - [留在最后](#留在最后)
 
 ## 背景
@@ -30,9 +31,9 @@
 介绍的博客：https://www.cnblogs.com/Cl0ud/p/13818127.html
 
 ## 安装
-该项目只支持Docker安装,(源码安装的话需要自己研究一下),以下是安装流程：
+该项目可使用Docker安装或源码安装（二选一）,以下是安装流程：
 
-#### **Docker安装：**
+#### **Docker安装：**（在腾讯云Ubuntu机器上测试成功）
 
 + 在服务器或本机上安装docker和docker-compose
 
@@ -45,6 +46,15 @@
   ```
 
 + 运行结束后访问 [http://ip地址:5000](http://ip:5000/)
+
+**源码安装：（在阿里云Windows机器上测试成功）**
+
+- Python版本:3.X，数据库:MySQL
+- Git bash界面输入 git clone https://github.com/Cl0udG0d/QQFishing 进行下载（或直接下载ZIP源代码）
+- 安装python类库: pip3 install -r requirements.txt
+- 修改config.py数据库账号密码为本地账号密码,将config.py 中 HOSTNAME='mysql' 修改为 HOSTNAME='0.0.0.0'
+- 导入数据库init.sql.zip文件（例如在phpmyadmin界面导入），自动初始化数据库和表，以及初始管理用户
+- 运行python3 index.py，访问 [http://ip地址:5000](http://ip:5000/)
 
 **提示：默认管理员登录邮箱为:[springbird@qq.com](mailto:springbird@qq.com),密码为:springbird,登录之后请第一时间修改密码**
 
@@ -83,13 +93,19 @@
 
 :jack_o_lantern:  
 春告鳥：理工酸菜鱼，花溪黄焖鸡  
+
+南风：发呆爱好者，废话输出机
+
 不董:不董
 
 ## 使用许可
 
 [MIT](LICENSE)  © 春告鳥
 
+## 赞赏码
+
+
+
 ## 留在最后
 
 :gift_heart: 请勿使用该项目进行违法犯罪，善恶终有报，天道好轮回
-
