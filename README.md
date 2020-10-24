@@ -63,7 +63,7 @@
 
   ![](https://github.com/Cl0udG0d/QQFishing/blob/master/static/images/2.png)
 
-- 导入数据库init.sql文件（方法很多，例如：https://www.php.cn/php-ask-424960.html，init.sql在 /mysql/init/文件夹下，init.sql.zip在本目录下），进行自动初始化数据库和表，以及初始管理用户
+- 导入数据库init.sql文件（方法很多，例如：[phpstudy如何导入sql文件](https://www.php.cn/php-ask-424960.html)，init.sql在 /mysql/init/文件夹下，init.sql.zip在本目录下），进行自动初始化数据库和表，以及初始管理用户
 
 - 运行python3 index.py，如图：
 
