@@ -6,7 +6,7 @@
 
 :blush:后端使用Python-Flask编写 前端白嫖+随便写写，数据库使用MySQL🔥
 
-:zap:项目部署只支持Docker:whale:安装(~~懒得配置源码安装~~)，应 issue-1，添加源码安装教程
+:zap:项目部署只支持Docker:whale:安装(~~懒得配置源码安装~~)，应 [issue-1](https://github.com/Cl0udG0d/QQFishing/issues/1)，添加源码安装教程
 
 :trident:适用对象: 使用社会工程学定向钓鱼攻击的安全渗透人员
 
@@ -50,11 +50,26 @@
 **源码安装：（在阿里云Windows机器上测试成功）**
 
 - Python版本:3.X，数据库:MySQL
+
 - Git bash界面输入 git clone https://github.com/Cl0udG0d/QQFishing 进行下载（或直接下载ZIP源代码）
+
 - 安装python类库: pip3 install -r requirements.txt
-- 修改config.py数据库账号密码为本地账号密码,将config.py 中 HOSTNAME='mysql' 修改为 HOSTNAME='0.0.0.0'
-- 导入数据库init.sql.zip文件（例如在phpmyadmin界面导入），自动初始化数据库和表，以及初始管理用户
-- 运行python3 index.py，访问 [http://ip地址:5000](http://ip:5000/)
+
+- 修改config.py数据库账号密码为本地账号密码,将config.py 中 HOSTNAME='mysql' 修改为 HOSTNAME='127.0.0.1'，如图：
+
+- 修改index.py文件中的app.run()为app.run(host='0.0.0.0')，如图：
+
+- 导入数据库init.sql文件（方法很多，例如：https://www.php.cn/php-ask-424960.html，init.sql在 /mysql/init/文件夹下，init.sql.zip在本目录下），进行自动初始化数据库和表，以及初始管理用户
+
+- 运行python3 index.py，如图：
+
+  
+
+  访问 [http://ip地址:5000](http://ip:5000/)
+
+- 如果访问不了，请检查是否是IP地址输错或者是云服务器防火墙端口未打开，如图：
+
+  
 
 **提示：默认管理员登录邮箱为:[springbird@qq.com](mailto:springbird@qq.com),密码为:springbird,登录之后请第一时间修改密码**
 
