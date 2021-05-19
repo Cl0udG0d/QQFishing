@@ -41,7 +41,7 @@
 
   ```shell
   git clone https://github.com/Cl0udG0d/QQFishing
-  cd AutumnWater
+  cd QQFishing
   docker-compose up -d
   ```
 
